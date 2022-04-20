@@ -1,17 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <form-generator :form-items="formItems"></form-generator>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import {defineComponent} from "vue";
+import FormGenerator from "@/components/FormGenerator.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
+    FormGenerator,
+  },
+  setup() {
+    return {
+      formItems: [
+        { type: "input", name: "test", label: "ltest", value: "default" },
+        { type: "textarea", name: "test", label: "ltest", value: "default" },
+        { type: "checkbox", name: "test", label: "ltest", value: "default" },
+        {
+          type: "select",
+          name: "select test",
+          label: "select test",
+          value: "default",
+          options: ["a", "b", "c", "d"],
+        },
+      ],
+    };
+  },
 });
 </script>
 
